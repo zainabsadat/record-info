@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SNMZ MIS/Employee Record</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="../CSS/Record.css">
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="../bootstrap_4/css/bootstrap.min.css">
+    <!-- Bootstrap JS link-->
+    <script src="../bootstrap_4/js/bootstrap.min.js"></script>
+    <!-- Jqurey link -->
+    <script src="../bootstrap_4/jquery/dist/jquery.min.js"></script>
+</head>
+<body style="background-color: #f7f0e8; padding: 60px 40px;">
+    <!-- Main content -->
+   <section class="content container-fluid">
+    <div class="row" style="text-align: center;">
+      <div class="col-md-12">
+        <div class="titlebody">
+          <div class="title">
+            <span id="title">EMPLOYEE  RECORD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <div class="row">
+     <div class="col-md-12">
+       <form action="#" method="POST" style="padding: 12px;" class="needs-validation">
+         <div class="row">
+           <!-- first col -->
+           <div class="col-md-4">
+            <div class="form-group">
+              <label for="Emp_name">Name</label>
+              <input type="text" class="form-control" id="Emp_name" placeholder="Name" name="Emp_name" minlength = "4" pattern = "^[a-zA-Z_]+$" required>
+            </div>
+
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" id="surname" placeholder="Surname" name="surname" minlength = "4" pattern = "^[a-zA-Z_]+$" required>
+            </div>
+
+            <div class="form-group">
+              <label for="fathername">Father Name</label>
+              <input type="text" class="form-control" id="fathername" placeholder="Father Name" name="fathername" minlength = "4" pattern = "^[a-zA-Z_]+$" required>
+          </div>
+          </div>
+
+          <!-- second col -->
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="number">Phone Number</label> <br>
+              <input type="tel" class="form-control" id="number" placeholder="Phone Number" name="number" minlength="10" pattern="^[0-9+]+$" required>
+            </div>
+
+            <div class="form-group" style="position: relative;">
+                <label for="salary">Salary</label>
+                <input type="number" class="form-control" id="salary" placeholder="Salary" name="salary" pattern="^[0-9]+$" required>
+                <select name="money" id="money" class="money" required>
+                  <option value="Af">Af</option>
+                  <option value="$">$</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <label for="position">Position</label>
+              <select name="position" id="position" class="form-control" required>
+                <option value="manager" selected>Manager</option>
+                <option value="staff">Staff</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- third col -->
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="Ep_photo">Photo</label>
+              <input type="file" class="form-control" id="Ep_photo" placeholder="Photo" name="Ep_photo" style="padding-top:3px;" required>
+          </div>
+
+            <div class="form-group">
+              <label for="date-man">Date</label>
+              <input type="date" class="form-control" id="date-man" name="date-man" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" id="address" placeholder="Address..." pattern = "^[a-zA-Z0-9_.]+$" required>
+            </div>
+          </div>
+         </div>
+
+         <!-- button col -->
+         <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn saveBtn" type="button" id="submit-button" style="background-color: #1F4594; margin-top: 27px;">SAVE</button>
+            </div>
+          </div>
+       </form>
+     </div>
+   </div>
+ </section>
+
+<!-- query code for datepicker-->
+<script>
+  $(document).ready(() => {
+          $('#date-man').datepicker({
+              changeMonth: true,
+              changeYear: true
+          });
+      });
+
+  // Disable form submissions if there are invalid fields
+  (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Get the forms we want to add validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+</script>
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+   Both of these plugins are recommended to enhance the
+   user experience. -->
+</body>
+</html>
